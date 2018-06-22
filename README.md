@@ -11,3 +11,7 @@ zhangsan/zhangsan permissions:none
 ```
 3. bug fix ```No ServletContext set```
 see :https://stackoverflow.com/questions/48367588/spring-boot-with-aclpermissionevaluator-resulting-in-illegalstateexception-no-s
+
+4. 使用mybatis-spring-boot-starter
+
+5. 已知问题：spring-security并未设置好
