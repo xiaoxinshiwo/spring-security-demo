@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaoxin.springsecurity.mapper.UserPermissionMapper" >
+    <resultMap id="BaseResultMap" type="com.xiaoxin.springsecurity.model.UserPermission" >
+
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="permission" property="permission" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+    <select id="findUserPermissions" parameterType="String" resultMap="BaseResultMap">
+        select tm.permission,tm.name from user_info ui
+        left join role_user ru on ui.id = ru.user_id
+        left join tb_role_menu trm on ru.role_id = trm.role_id
+        left join tb_menu tm on trm.menu_id = tm.id
+        where ui.username =#{username}
+    </select>
+</mapper>
