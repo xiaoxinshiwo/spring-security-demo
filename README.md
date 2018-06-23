@@ -14,4 +14,4 @@ see :https://stackoverflow.com/questions/48367588/spring-boot-with-aclpermission
 
 4. 使用mybatis-spring-boot-starter
 
-5. 已知问题：spring-security并未设置好
+5. 问题反馈：woxiaoxinxin@gmail.com

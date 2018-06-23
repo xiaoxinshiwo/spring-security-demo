@@ -48,8 +48,8 @@ public class UserService implements UserDetailsService {
                 UserAuthority userAuthority = new UserAuthority(permission.getPermission(), permission.getName());
                 userAuthorities.add(userAuthority);
             }
+            user.setAuthorities(userAuthorities);
         }
-        user.setAuthorities(userAuthorities);
         log.info("user found with username {}.",name);
         return user;
     }

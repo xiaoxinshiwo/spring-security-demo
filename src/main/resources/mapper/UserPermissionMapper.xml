@@ -10,9 +10,9 @@
 
     <select id="findUserPermissions" parameterType="String" resultMap="BaseResultMap">
         select tm.permission,tm.name from user_info ui
-        left join role_user ru on ui.id = ru.user_id
-        left join tb_role_menu trm on ru.role_id = trm.role_id
-        left join tb_menu tm on trm.menu_id = tm.id
+        inner join role_user ru on ui.id = ru.user_id
+        inner join tb_role_menu trm on ru.role_id = trm.role_id
+        inner join tb_menu tm on trm.menu_id = tm.id
         where ui.username =#{username}
     </select>
 </mapper>

@@ -14,15 +14,15 @@ import java.util.Set;
 public class User implements UserDetails {
 
 
-    private String userName;
+    private String username;
 
     private String password;
 
     private boolean enabled;
 
     private Set<UserAuthority> authorities;
-    public User(String userName, String password) {
-        this.userName = userName;
+    public User(String username, String password) {
+        this.username = username;
         this.password = password;
         this.enabled = true;
     }
@@ -40,7 +40,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     @Override
@@ -63,12 +63,9 @@ public class User implements UserDetails {
         return enabled;
     }
 
-    public String getUserName() {
-        return userName;
-    }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public void setPassword(String password) {

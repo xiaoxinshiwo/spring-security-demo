@@ -1,10 +1,15 @@
 package com.xiaoxin.springsecurity.model;
 
+import com.xiaoxin.springsecurity.common.Vo;
+
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "user_info")
-public class UserInfo {
+public class UserInfo extends Vo{
+
+    private static final long serialVersionUID = -7205294025030723385L;
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

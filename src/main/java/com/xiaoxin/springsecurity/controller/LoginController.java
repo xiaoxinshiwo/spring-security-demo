@@ -1,12 +1,11 @@
 package com.xiaoxin.springsecurity.controller;
 
+import com.xiaoxin.springsecurity.model.User;
+import com.xiaoxin.springsecurity.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 用户登录
@@ -21,9 +20,9 @@ public class LoginController {
     private AuthenticationManager authenticationManager;
 
 
-    @GetMapping("/auth")
-    public String auth(@RequestParam String userName, @RequestParam String password) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userName, password));
+    @PostMapping("/auth")
+    public String auth(@RequestBody UserInfo user) {
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         return "login success";
     }
 
