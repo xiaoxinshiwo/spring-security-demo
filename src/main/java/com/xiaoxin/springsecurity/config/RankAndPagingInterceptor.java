@@ -26,7 +26,7 @@ public class RankAndPagingInterceptor implements Interceptor{
         Object paramter = invocation.getArgs()[1];
         if (paramter instanceof So) {
             So so = (So) paramter;
-            Page<Object> page = PageHelper.startPage(so.getCurrentPage(), so.getPageSize(), so.isEnableCount());
+            Page<Object> page = PageHelper.startPage(so.getCurrentPage(), so.getPageSize());
             page.setOrderByOnly(so.isOrderByOnly());
             if (so.getSorts() != null && !so.getSorts().isEmpty()) {
                 page.setOrderBy(SORT_JOINER.join(so.getSorts()));

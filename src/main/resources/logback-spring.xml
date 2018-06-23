@@ -65,7 +65,7 @@
         <appender-ref ref="druid"/>
     </appender>
     <!-- mybatis loggers -->
-    <logger name="mapper" level="DEBUG" additivity="false">
+    <logger name="com.xiaoxin.springsecurity.mapper" level="DEBUG" additivity="false">
         <appender-ref ref="sql-queue"/>
         <appender-ref ref="console"/>
     </logger>

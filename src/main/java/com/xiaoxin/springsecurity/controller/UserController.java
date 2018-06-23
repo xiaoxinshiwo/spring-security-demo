@@ -7,6 +7,7 @@ import com.xiaoxin.springsecurity.model.userinfo.UserInfoSo;
 import com.xiaoxin.springsecurity.service.userinfo.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,7 @@ public class UserController {
     private UserInfoService userInfoService;
 
     @GetMapping("findByPage")
-    public PageInfo<UserInfo> findByPage(UserInfoSo so) {
+    public PageInfo<UserInfo> findByPage(@ModelAttribute UserInfoSo so) {
 
         return userInfoService.findByPage(so);
     }
