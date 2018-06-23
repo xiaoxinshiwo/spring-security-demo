@@ -1,9 +1,10 @@
 # 使用说明
 1. 登录 
 ```
-http://127.0.0.1:8080/login?userName=admin&password=admin
+http://127.0.0.1:8080/login
+admin/admin
 ```
-2. 用户列表
+2. 用户列表 刷入脚本 mysql.sql
 ```
 admin/admin permissions: user-create user-update
 user/user permissions: user-update
