@@ -15,8 +15,8 @@ import java.util.List;
 @Configuration
 public class MyBatisConfig {
 
-    @Bean
-    public RankAndPagingInterceptor rankAndPagingInterceptor (){
-       return new RankAndPagingInterceptor();
-    }
+//    @Bean
+//    public RankAndPagingInterceptor rankAndPagingInterceptor (){
+//       return new RankAndPagingInterceptor();
+//    }
 }
