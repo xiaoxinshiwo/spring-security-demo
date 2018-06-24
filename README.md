@@ -18,7 +18,9 @@ see :https://stackoverflow.com/questions/48367588/spring-boot-with-aclpermission
 5. 已知问题：使用mybatis 拦截器进行分页的插件不起作用
 
 6. springSecurity 默认设置在spring.profiles.active=prod时生效,如想关闭请设置为dev
-```注意：此时/permit/** /auth 接口均不可使用```
+```
+注意：此时/permit/** /auth 接口均不可使用
+```
 
 
 last. 问题反馈：woxiaoxinxin@gmail.com
