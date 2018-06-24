@@ -1,6 +1,7 @@
 package com.xiaoxin.springsecurity.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * spring security核心配置
+ * 开发环境下不生效
  * @Auther zhangyongxin
  * @date 2018/6/20 下午3:12
  */
@@ -22,6 +24,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userService;
+
+    @Value("${spring.profiles.active}")
+    private String profile;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -36,31 +41,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests()
-                // 需要忽略的，其他都要登录
-                .antMatchers("/ignore/**").permitAll()
-                .anyRequest().authenticated()
-                .and().formLogin().defaultSuccessUrl("/loginSuccess",true);
-
+        if("prod".equals(profile)){
+            httpSecurity.authorizeRequests()
+                    // 需要忽略的，其他都要登录
+                    .antMatchers("/ignore/**").permitAll()
+                    .anyRequest().authenticated()
+                    .and().formLogin().defaultSuccessUrl("/loginSuccess", true);
+        }else{
+            httpSecurity.authorizeRequests().antMatchers("/**/**").permitAll();
+        }
     }
+
     @Override
-    public void configure(WebSecurity web){
-        web
-            .ignoring()
-            .antMatchers(
-                    HttpMethod.POST,
-                    "/auth"
-            )
-            // allow anonymous resource requests
-            .and()
-            .ignoring()
-            .antMatchers(
-                    "/*.html",
-                    "/favicon.ico",
-                    "/**/*.html",
-                    "/**/*.css",
-                    "/**/*.js"
-            );
+    public void configure(WebSecurity web) {
+        web.ignoring().antMatchers(HttpMethod.POST, "/auth")
+                // allow anonymous resource requests
+                .and().ignoring().antMatchers("/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js");
 
 
     }
