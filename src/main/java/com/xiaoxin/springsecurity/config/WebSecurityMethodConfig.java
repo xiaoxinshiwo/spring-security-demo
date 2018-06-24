@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler;
 
 /**
+ * 权限处理设置
  * @Auther zhangyongxin
  * @date 2018/6/23 上午11:51
  */

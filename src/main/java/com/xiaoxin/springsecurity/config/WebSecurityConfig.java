@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
+ * spring security核心配置
  * @Auther zhangyongxin
  * @date 2018/6/20 下午3:12
  */

@@ -5,7 +5,6 @@ import com.xiaoxin.springsecurity.model.userinfo.UserInfoSo;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
-
 public interface UserInfoMapper extends Mapper<UserInfo> {
 
     UserInfo findByUsername(String username);
