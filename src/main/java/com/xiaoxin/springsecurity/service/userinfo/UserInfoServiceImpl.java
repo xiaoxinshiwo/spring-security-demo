@@ -1,12 +1,12 @@
 package com.xiaoxin.springsecurity.service.userinfo;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xiaoxin.springsecurity.mapper.UserInfoMapper;
 import com.xiaoxin.springsecurity.model.UserInfo;
 import com.xiaoxin.springsecurity.model.userinfo.UserInfoSo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,8 +25,14 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Override
     public PageInfo<UserInfo> findByPage(UserInfoSo so) {
-        PageHelper.startPage(so.getCurrentPage(), so.getPageSize(),so.isEnableCount());
+        PageHelper.startPage(so.getCurrentPage(), so.getPageSize(), so.isEnableCount());
         List<UserInfo> userInfoList = userInfoMapper.findByPage(so);
         return new PageInfo(userInfoList);
+    }
+
+    @Override
+    @Cacheable(value = "springSecurityDemo:user", key = "#name")
+    public UserInfo findByName(String name) {
+        return userInfoMapper.findByUsername(name);
     }
 }

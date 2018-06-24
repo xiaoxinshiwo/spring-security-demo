@@ -14,4 +14,6 @@ import java.util.List;
 public interface UserInfoService {
 
     PageInfo<UserInfo> findByPage(UserInfoSo so);
+
+    UserInfo findByName(String name);
 }

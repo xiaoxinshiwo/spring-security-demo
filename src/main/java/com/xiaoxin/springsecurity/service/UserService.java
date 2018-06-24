@@ -9,6 +9,7 @@ import com.xiaoxin.springsecurity.model.UserInfo;
 import com.xiaoxin.springsecurity.model.UserPermission;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,6 +35,7 @@ public class UserService implements UserDetailsService {
     private UserPermissionMapper permissionMapper;
 
     @Override
+    @Cacheable(value="springSecurityDemo:auth:userDetails",key="#name")
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
         UserInfo userInfo = userInfoMapper.findByUsername(name);
         User user;
