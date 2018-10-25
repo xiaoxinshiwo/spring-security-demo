@@ -17,20 +17,4 @@
     <result column="permission" jdbcType="VARCHAR" property="permission" />
     <result column="active_url" jdbcType="VARCHAR" property="activeUrl" />
   </resultMap>
-  <resultMap id="BaseResultMap" type="com.xiaoxin.springsecurity.model.TbMenu">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="url" jdbcType="VARCHAR" property="url" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="remark" jdbcType="VARCHAR" property="remark" />
-    <result column="ico" jdbcType="VARCHAR" property="ico" />
-    <result column="model" jdbcType="VARCHAR" property="model" />
-    <result column="p_id" jdbcType="BIGINT" property="pId" />
-    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
-    <result column="sort" jdbcType="INTEGER" property="sort" />
-    <result column="permission" jdbcType="VARCHAR" property="permission" />
-    <result column="active_url" jdbcType="VARCHAR" property="activeUrl" />
-  </resultMap>
 </mapper>

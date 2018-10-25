@@ -25,7 +25,6 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Override
     public PageInfo<UserInfo> findByPage(UserInfoSo so) {
-        PageHelper.startPage(so.getCurrentPage(), so.getPageSize(), so.isEnableCount());
         List<UserInfo> userInfoList = userInfoMapper.findByPage(so);
         return new PageInfo(userInfoList);
     }
