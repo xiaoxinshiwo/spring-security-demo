@@ -31,6 +31,7 @@
         <targetXMLPackage>mapper</targetXMLPackage>
         <mysql.driver.version>5.1.45</mysql.driver.version>
         <tk.mybatis.version>3.4.2</tk.mybatis.version>
+        <google.guava.version>18.0</google.guava.version>
 	</properties>
 
 	<dependencies>
@@ -137,6 +138,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${google.guava.version}</version>
         </dependency>
 	</dependencies>
 
