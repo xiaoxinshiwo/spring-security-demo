@@ -31,7 +31,7 @@
         <targetXMLPackage>mapper</targetXMLPackage>
         <mysql.driver.version>5.1.45</mysql.driver.version>
         <tk.mybatis.version>3.4.2</tk.mybatis.version>
-        <google.guava.version>18.0</google.guava.version>
+        <google.guava.version>23.0</google.guava.version>
 	</properties>
 
 	<dependencies>
@@ -68,11 +68,6 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>25.1-jre</version>
         </dependency>
 
         <dependency>
@@ -128,11 +123,23 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

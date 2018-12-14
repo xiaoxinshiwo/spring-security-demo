@@ -17,6 +17,7 @@ public class UserListener extends AbstractActionEventListener{
 	@Subscribe
 	@AllowConcurrentEvents
 	public void onUserRegister(UserRegisterEvent event) {
+		// TODO: 2018/12/14 调查为什么不异步执行
 		// 简单的就打印日志
 		log.info("user register {}",event.getUserId());
 	}

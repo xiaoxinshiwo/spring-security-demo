@@ -5,6 +5,7 @@ import com.xiaoxin.springsecurity.listener.ActionEventListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  * @author zhangyongxin
  * @date 2018/12/14 10:55 AM
  */
-//@Component
+@Component
 public class SystemApplicationRunner implements ApplicationRunner {
 
 	@Autowired
@@ -27,8 +28,8 @@ public class SystemApplicationRunner implements ApplicationRunner {
 		/**
 		 * 注册eventBus
 		 */
-			for(ActionEventListener actionEventListener : eventList){
-				eventBus.register(actionEventListener);
-			}
+		for(ActionEventListener actionEventListener : eventList){
+			eventBus.register(actionEventListener);
+		}
 		}
 	}
