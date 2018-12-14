@@ -15,12 +15,16 @@ see :https://stackoverflow.com/questions/48367588/spring-boot-with-aclpermission
 
 4. 使用mybatis-spring-boot-starter
 
-5. 已知问题：使用mybatis 拦截器进行分页的插件不起作用（已经解决）
+5. 使用mybatis 拦截器进行分页的插件
 
 6. springSecurity 默认设置在spring.profiles.active=prod时生效,如想关闭请设置为dev
+
+7. 使用google guva EventBus 进行发布/订阅模式的事件监听进行解耦。see： ```https://github.com/google/guava/wiki/EventBusExplained```
+
+
 ```
 注意：此时/permit/** /auth 接口均不可使用
 ```
-
+todo. EventBus未异步执行
 
 last. 问题反馈：woxiaoxinxin@gmail.com
