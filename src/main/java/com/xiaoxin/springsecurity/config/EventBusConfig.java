@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 public class EventBusConfig {
 
 	@Bean
-	public EventBus eventBus() {
+	public AsyncEventBus eventBus() {
 		return new AsyncEventBus("springsecurity-demo-event",
 				Executors.newFixedThreadPool(10));
 	}

@@ -12,6 +12,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -23,7 +24,7 @@ import java.util.List;
  */
 @Configuration
 @Slf4j
-public class WebMvcConfig implements WebMvcConfigurer {
+public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {

@@ -1,5 +1,6 @@
 package com.xiaoxin.springsecurity.controller;
 
+import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.EventBus;
 import com.xiaoxin.springsecurity.common.Result;
 import com.xiaoxin.springsecurity.common.ResultGenerator;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EventBusTestController {
 
 	@Autowired
-	private EventBus eventBus;
+	private AsyncEventBus eventBus;
 
 	@GetMapping("{userId}")
 	@ApiOperation(value = "eventBus测试", notes = "eventBus测试")

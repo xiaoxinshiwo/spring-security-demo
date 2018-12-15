@@ -12,11 +12,13 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class UserListener extends AbstractActionEventListener{
+public class UserListener extends AbstractAsyncEventListener {
 
 	@Subscribe
-	public void onUserRegister(UserRegisterEvent event) {
-		// TODO: 2018/12/14 调查为什么不异步执行
+	@AllowConcurrentEvents
+	public void onUserRegister(UserRegisterEvent event) throws InterruptedException {
+		// 休眠模拟耗时处理的情况
+		Thread.sleep(5000L);
 		// 简单的就打印日志
 		log.info("user register {}",event.getUserId());
 	}
